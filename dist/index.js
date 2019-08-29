@@ -1989,10 +1989,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       this.rawFile = e.target.files[0];
       this.fileConvertToWorkbook(this.rawFile).then(function (workbook) {
-        var xlsxArr = __WEBPACK_IMPORTED_MODULE_0_xlsx___default.a.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
+        var first_worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        var data = __WEBPACK_IMPORTED_MODULE_0_xlsx___default.a.utils.sheet_to_json(first_worksheet, { header: 1 });
         _this.workbook = workbook;
-        _this.initTable(_this.xlsxArrToTableArr(xlsxArr));
+        _this.initTable(_this.xlsxArrToTableArr(data));
       }).catch(function (err) {
+        _this.$emit('on-select-file', false);
         console.error(err);
       });
     },
@@ -2020,6 +2022,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else {
               /* if array buffer, convert to base64 */
               var arr = fixdata(data);
+              console.log(__WEBPACK_IMPORTED_MODULE_0_xlsx___default.a.read(btoa(arr), { type: 'base64' }));
               resolve(__WEBPACK_IMPORTED_MODULE_0_xlsx___default.a.read(btoa(arr), { type: 'base64' }));
             }
           };

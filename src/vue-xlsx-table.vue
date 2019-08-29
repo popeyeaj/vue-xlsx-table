@@ -46,10 +46,11 @@ export default {
       this.rawFile = e.target.files[0]
       this.fileConvertToWorkbook(this.rawFile)
         .then((workbook) => {
-          let xlsxArr = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]])
+          var first_worksheet = workbook.Sheets[workbook.SheetNames[0]];
+          var data = XLSX.utils.sheet_to_json(first_worksheet, {header:1});
           this.workbook = workbook
           this.initTable(
-            this.xlsxArrToTableArr(xlsxArr)
+            this.xlsxArrToTableArr(data)
           )
         })
         .catch((err) => {
@@ -77,6 +78,7 @@ export default {
             } else {
               /* if array buffer, convert to base64 */
               let arr = fixdata(data)
+              console.log(XLSX.read(btoa(arr), {type: 'base64'}))
               resolve(XLSX.read(btoa(arr), {type: 'base64'}))
             }
           }
