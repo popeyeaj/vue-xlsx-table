@@ -78,7 +78,6 @@ export default {
             } else {
               /* if array buffer, convert to base64 */
               let arr = fixdata(data)
-              console.log(XLSX.read(btoa(arr), {type: 'base64'}))
               resolve(XLSX.read(btoa(arr), {type: 'base64'}))
             }
           }
