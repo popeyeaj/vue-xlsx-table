@@ -2022,7 +2022,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else {
               /* if array buffer, convert to base64 */
               var arr = fixdata(data);
-              console.log(__WEBPACK_IMPORTED_MODULE_0_xlsx___default.a.read(btoa(arr), { type: 'base64' }));
               resolve(__WEBPACK_IMPORTED_MODULE_0_xlsx___default.a.read(btoa(arr), { type: 'base64' }));
             }
           };
