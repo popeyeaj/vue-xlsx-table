@@ -108,10 +108,12 @@ export default {
       })
       let tableHeader = xlsxArr[0]
       let rowItem = {}
-      xlsxArr.forEach((item) => {
-        rowItem = {}
-        for (let i = 0; i < maxLength; i++) {
-          rowItem[tableHeader[i]] = item[tableHeader[i]] || ''
+      xlsxArr.forEach((item, index) => {
+        if( index > 0 ){
+          rowItem = {}
+          for (let i = 0; i < maxLength; i++) {
+            rowItem[tableHeader[i]] = item[i] || ''
+          }
         }
         tableArr.push(rowItem)
       })

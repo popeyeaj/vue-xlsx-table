@@ -2052,10 +2052,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
       var tableHeader = xlsxArr[0];
       var rowItem = {};
-      xlsxArr.forEach(function (item) {
-        rowItem = {};
-        for (var i = 0; i < maxLength; i++) {
-          rowItem[tableHeader[i]] = item[tableHeader[i]] || '';
+      xlsxArr.forEach(function (item, index) {
+        if (index > 0) {
+          rowItem = {};
+          for (var i = 0; i < maxLength; i++) {
+            rowItem[tableHeader[i]] = item[i] || '';
+          }
         }
         tableArr.push(rowItem);
       });
