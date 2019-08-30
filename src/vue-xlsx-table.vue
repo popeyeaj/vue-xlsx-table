@@ -114,8 +114,8 @@ export default {
           for (let i = 0; i < maxLength; i++) {
             rowItem[tableHeader[i]] = item[i] || ''
           }
+          tableArr.push(rowItem)
         }
-        tableArr.push(rowItem)
       })
       return {
         header: tableHeader,

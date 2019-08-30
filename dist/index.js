@@ -2058,8 +2058,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           for (var i = 0; i < maxLength; i++) {
             rowItem[tableHeader[i]] = item[i] || '';
           }
+          tableArr.push(rowItem);
         }
-        tableArr.push(rowItem);
       });
       return {
         header: tableHeader,
