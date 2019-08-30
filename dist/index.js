@@ -2050,7 +2050,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           maxLengthIndex = index;
         }
       });
-      var tableHeader = Object.keys(xlsxArr[maxLengthIndex]);
+      var tableHeader = xlsxArr[0];
       var rowItem = {};
       xlsxArr.forEach(function (item) {
         rowItem = {};

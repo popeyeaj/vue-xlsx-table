@@ -106,7 +106,7 @@ export default {
           maxLengthIndex = index
         }
       })
-      let tableHeader = Object.keys(xlsxArr[maxLengthIndex])
+      let tableHeader = xlsxArr[0]
       let rowItem = {}
       xlsxArr.forEach((item) => {
         rowItem = {}
